@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Gundam Portfolio</title>
+    <!-- This example uses all of the required code for project 2 -->
+    <meta charset="utf-8">
+    <!-- BE SURE TO INCLUDE THE VIEWPORT BELOW TO SCALE YOUR PAGE FOR MOBILE -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- ADD THE GOOGLE FONTS LINKS BELOW -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <style>
+        /* WHOLE PAGE STYLES */
+        body {
+            font-family: 'Jost', sans-serif;
+            margin: 0; /* So your other sections go to the edge */
+        }
+        
+        section#page {
+            background-color: #1a1a1a; /* Dark background like your original */
+            position: relative; /* makes positioning respond to page */
+            /* un-comment the statements below for a smaller centered page inset from the body */
+            /* 
+            margin: 25px auto;
+            width: 90vw;  
+            */
+        }
+        
+        header, footer, main section, aside {
+            padding: 25px; /* this makes sure that your type doesn't go all the way to the edge */
+        }
+        
+        /* custom img styles */
+        .avatar { 
+            width: 160px;
+            height: 160px;
+            border-radius: 80px;
+        }
+        
+        /* HEADER STYLES */    
+        header {
+            background-color: #333;
+            background-image: url("file:///C:/Users/giahu/Downloads/compressed/background.jpg");
+            background-position: center;
+            background-size: cover;
+            background-repeat: no-repeat;
+            position: relative;    
+            color: white; /* type color */
+            height: 25em; /* Taller hero section */
+            /* makes it easy to center your hgroup title */
+            display: grid; 
+            place-items: center;
+            text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+        }
+        
+        h1, h2, h3, h4, figcaption {
+            text-align: center; /* center align all at once */
+        }
+        
+        hgroup {
+            font-size: 1.8em;
+            line-height: 1.5em;
+            /* makes your page titles bigger together */
+        }
+        
+        hgroup * {
+            margin: 0; /* tightens space between title and subtitle */
+        }
+        
+        /* COMMON NAVIGATION STYLING */
+        nav {
+            position: absolute;
+            top: 0;
+            right: 0;
+            /* make sure that the parent header is positioned relative */
+        }
+        
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            margin: 0;
+        }
+        
+        nav li a {
+            display: inline-block; /* allows you to style as a button with background */
+            padding: 10px 15px; /* determines size of button shape or space */
+            margin-left: 5px; /* space between them */
+            text-decoration: none; /* default is underline */
+            color: white; /* default is blue */
+            background-color: rgba(0, 0, 0, 0.5);
+            border-radius: 4px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        nav li a:hover {
+            background-color: #ff7e5f;
+            color: white;
+        }
+        
+        /* SECTION STYLES */
+        main section h3 {
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: .05em;
+            color: #ff7e5f;
+            margin-bottom: 30px;
+            font-size: 2em;
+        }
+        
+        /* custom section styles */
+        #intro {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        #gallery {
+            background-color: #fff;
+            color: #333;
+        }
+        
+        #about {
+            background-color: #f9f9f9;
+            color: #333;
+        }
+        
+        #contact {
+            background-color: #222;
+            color: white;
+        }
+        
+        /* ASIDE DESIGN */
+        /* I like to use aside tags to attach photos, with or without text, to break up the flow of your page */
+        aside h4 {
+            text-transform: uppercase;
+            font-weight: 100;
+            font-size: 4em;
+            color: #ff7e5f;
+            text-align: center;
+            margin: 0;
+        }
+        
+        #sectional-1 {
+            background: #333 url("file:///C:/Users/giahu/Downloads/compressed/IMG_1651.jpg") center 60% / cover no-repeat;
+            min-height: 300px;
+            display: grid;
+            place-items: center;
+        }
+        
+        /* FLEXBOX ROW STYLING */
+        .row {
+            display: flex;
+            align-items: center; /* vertical */
+            justify-content: center; /* horizontal */
+            gap: 40px; /* like margins */
+            margin-bottom: 40px; /* balances with the section title space */
+            flex-wrap: wrap;
+        }
+        
+        .reverse { flex-direction: row-reverse; } /* if you want to reverse the ordering in your row just add this class to the row in html */
+        
+        #intro .row p { 
+            max-width: 600px;
+            font-size: 1.2em;
+            line-height: 1.8;
+        }
+        
+        /* GALLERY / PORTFOLIO STYLES */
+        #portfolio {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        #portfolio figure { 
+            position: relative;
+            border: none;
+            padding: 0;
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 0;
+            background: white;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            overflow: hidden;
+        }
+        
+        #portfolio figure:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        #portfolio figure img { 
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        #portfolio figure figcaption {
+            margin: 15px 0 10px;
+            color: #222;
+            text-align: center;
+            font-weight: 700;
+            font-size: 1.2em;
+            text-transform: uppercase;
+        }
+        
+        #portfolio figure p {
+            margin: 0 15px 20px;
+            font-style: italic;
+            color: #555;
+            font-size: 0.95em;
+        }
+        
+        /* CONTACT STYLES */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .contact-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 30px 20px;
+            text-align: center;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        
+        .contact-box:hover {
+            transform: translateY(-5px);
+            background-color: rgba(255, 255, 255, 0.15);
+        }
+        
+        .contact-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            color: #ff7e5f;
+        }
+        
+        .contact-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+            color: #fff;
+        }
+        
+        .contact-box p {
+            color: #ccc;
+            font-size: 1rem;
+        }
+        
+        /* ABOUT CONTENT */
+        .about-content {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 50px;
+            max-width: 1000px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+        }
+        
+        .artist-bio {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+        }
+        
+        .artist-bio h3 {
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        
+        .artist-bio p {
+            font-size: 1.1em;
+            line-height: 1.8;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* FOOTER STYLES */
+        footer { 
+            display: flex; 
+            justify-content: space-around; 
+            align-items: center;
+            gap: 15px; 
+            font-style: italic;
+            color: white;
+            background: #111;
+            padding: 40px 25px;
+            flex-wrap: wrap;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .social-links a {
+            color: #aaa;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+        
+        .social-links a:hover {
+            color: #ff7e5f;
+        }
+        
+        /* use scaled media rules to make sure that things wrap the way you want when viewing on smaller devices */
+        @media screen and (max-width: 768px) {
+            .row { 
+                flex-direction: column; 
+                text-align: center;
+            }
+            
+            nav {
+                position: relative;
+                margin-top: 20px;
+            }
+            
+            nav ul {
+                justify-content: center;
+            }
+            
+            header {
+                height: auto;
+                padding: 80px 25px;
+            }
+            
+            hgroup {
+                font-size: 1.4em;
+            }
+            
+            #portfolio {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+                gap: 20px;
+            }
+            
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            footer {
+                flex-direction: column;
+                gap: 20px;
+            }
+        }
+        
+        @media screen and (max-width: 500px) {
+            #portfolio {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 10px;
+            }
+            
+            nav li a {
+                margin-left: 0;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<section id="page">
+
+<header>
+    <hgroup>
+        <h1>Huy's Gundam Portfolio</h1>
+        <h3>My Collection of Gundam Model Kits</h3>
+    </hgroup>
+    <nav><!-- traditional navigation set-up -->
+        <ul>
+            <li><a href="#intro">Intro</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main><!-- the main part of your site outside of header and footer -->
+    <section id="intro"><!-- it is good to design in sections of contained content with a common background and styles -->
+        <h3>Welcome to My Gundam World</h3>
+        <div class="row"><!-- use rows to layout things horizontally in a section using flexbox, each direct child will be an aligned item. -->
+            <p>This site showcases a collection of visual works featuring Gundam model kits. Gundam is an internationally renowned franchise spanning around 83 animated series and movies, starting from 1979. Each model represents hours of careful assembly, painting, and photography.</p>
+            <p>The Gundam franchise has captivated audiences for decades with its complex storytelling, mecha designs, and philosophical themes. Building these models is both a technical challenge and an artistic expression.</p>
+        </div><!-- END OF ROW -->
+    </section>
+
+    <aside id="sectional-1"><!-- Image is placed in background style -->
+        <h4>Mobile Suit Art</h4><!-- in the page hierarchy this is a minor title but I style it huge for design -->
+    </aside>
+
+    <section id="gallery">
+        <h3>Gundam Gallery</h3>
+        <div class="row">
+            <p>Explore my collection of assembled and customized Gundam models. Each piece represents a unique build with attention to detail, painting techniques, and photographic composition.</p>
+        </div>
+        <div id="portfolio"><!-- I'll make this the grid parent in the styles, similar to how I used 'row' as a flex parent -->
+            <figure><!-- these are the direct children of 'portfolio' that will be the gridded items -->
+                <img src="file:///C:/Users/giahu/Downloads/drive-download-20251205T024210Z-1-001/5BC5D33F-419B-477C-8674-E5E68D166FCD.JPG" alt="Gundam model close-up">
+                <figcaption>RX-93 v Gundam</figcaption>
+            </figure>
+            <figure>
+                <img src="file:///C:/Users/giahu/Downloads/compressed/IMG_1651.jpg" alt="Gundam in dynamic pose">
+                <figcaption>Rx-78-2</figcaption>
+            </figure>
+            <figure>
+                <img src="file:///C:/Users/giahu/Downloads/drive-download-20251205T040030Z-1-001/IMG_1436.PNG" alt="Colorful Gundam display">
+                <figcaption>Nu and Hi-v Gundam</figcaption>
+            </figure>
+            <figure>
+                <img src="file:///C:/Users/giahu/Downloads/compressed%20(1)/IMG_0557.jpg" alt="Geometric Gundam forms">
+                <figcaption>Wing Zero and Epion </figcaption>
+            </figure>
+            <figure>
+                <img src="file:///C:/Users/giahu/Downloads/drive-download-20251205T024210Z-1-001/7AC33607-EAB9-42F1-9E4D-BBFBE60D743F.JPG" alt="Texture study of Gundam">
+                <figcaption>RX-0 Unicorn Gundam</figcaption>
+            </figure>
+            <figure>
+                <img src="file:///C:/Users/giahu/Downloads/drive-download-20251205T024210Z-1-001/91C8A710-CB91-4CEA-9BC7-784770DF7C26.JPG" alt="Gundam detail shot">
+                <figcaption>RX-0 Unicorn Gundam</figcaption>
+            </figure>
+            <figure>
+                <img src="file:///C:/Users/giahu/Downloads/compressed%20(1)/IMG_1393.jpg" alt="Gundam action pose">
+                <figcaption>RX-93 v Gundam</figcaption>
+            </figure>
+            <figure>
+                <img src="file:///C:/Users/giahu/Downloads/drive-download-20251205T040030Z-1-001/IMG_0671.PNG" alt="Gundam display collection">
+                <figcaption>RX-93 v Gundam</figcaption>
+            </figure>
+        </div>
+    </section>
+
+    <section id="about">
+        <h3>Buildong process</h3>
+        <div class="about-content">
+            <div class="artist-bio">
+                <p>I build Gundam models as a passionate hobby, combining technical assembly with artistic photography. Each kit begins as hundreds of plastic pieces on runners, requiring careful cutting, sanding, and assembly.</p>
+                <p>The process continues with panel lining to enhance details, custom painting for unique color schemes, and sometimes weathering effects for battle-worn appearances. The final step is photography - capturing each model in dynamic poses with proper lighting to showcase the craftsmanship.</p>
+                <p>This hobby teaches patience, attention to detail, and creative problem-solving. It's a meditative process that results in tangible works of art inspired by one of animation's most enduring franchises.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h3>Contact Me</h3>
+        <div class="contact-container">
+            <div class="contact-box">
+                <div class="contact-icon">📍</div>
+                <h3>Location</h3>
+                <p>Kansas City, Missouri<br>USA</p>
+            </div>
+            
+            <div class="contact-box">
+                <div class="contact-icon">📞</div>
+                <h3>Phone</h3>
+                <p>+1 (816) XXX-XXXX</p>
+            </div>
+            
+            <div class="contact-box">
+                <div class="contact-icon">✉️</div>
+                <h3>Email</h3>
+                <p>gxt00390@ucmo.edu</p>
+            </div>
+        </div>
+    </section>
+</main>
+
+<footer>
+    <div id="author" class="right-align"><i>&copy;</i> Huy Tran <span class="date">2025</span></div>
+    <div class="social-links">
+        <a href="https://www.instagram.com/huydabuilder/" title="Instagram">📷</a>
+    </div>
+    <div id="disclaimer">All photography and Gundam models displayed are the property of Huy Tran</div>
+</footer>
+
+</section><!-- END OF PAGE -->
+
+</body>
+</html>
