@@ -2,43 +2,32 @@
 <html lang="en-US">
 <head>
     <title>Gundam Portfolio</title>
-    <!-- This example uses all of the required code for project 2 -->
     <meta charset="utf-8">
-    <!-- BE SURE TO INCLUDE THE VIEWPORT BELOW TO SCALE YOUR PAGE FOR MOBILE -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- ADD THE GOOGLE FONTS LINKS BELOW -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,400;0,700;1,300&display=swap" rel="stylesheet">
     <style>
-        /* WHOLE PAGE STYLES */
         body {
             font-family: 'Jost', sans-serif;
-            margin: 0; /* So your other sections go to the edge */
+            margin: 0; 
         }
         
         section#page {
-            background-color: #1a1a1a; /* Dark background like your original */
-            position: relative; /* makes positioning respond to page */
-            /* un-comment the statements below for a smaller centered page inset from the body */
-            /* 
-            margin: 25px auto;
-            width: 90vw;  
-            */
+            background-color: #1a1a1a; 
+            position: relative; 
         }
         
         header, footer, main section, aside {
-            padding: 25px; /* this makes sure that your type doesn't go all the way to the edge */
+            padding: 25px;
         }
         
-        /* custom img styles */
         .avatar { 
             width: 160px;
             height: 160px;
             border-radius: 80px;
         }
         
-        /* HEADER STYLES */    
         header {
             background-color: #333;
             background-image: url("file:///C:/Users/giahu/Downloads/compressed/background.jpg");
@@ -46,34 +35,34 @@
             background-size: cover;
             background-repeat: no-repeat;
             position: relative;    
-            color: white; /* type color */
-            height: 25em; /* Taller hero section */
-            /* makes it easy to center your hgroup title */
+            color: white; 
+            height: 25em; 
+           
             display: grid; 
             place-items: center;
             text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
         }
         
         h1, h2, h3, h4, figcaption {
-            text-align: center; /* center align all at once */
+            text-align: center; 
         }
         
         hgroup {
             font-size: 1.8em;
             line-height: 1.5em;
-            /* makes your page titles bigger together */
+            
         }
         
         hgroup * {
-            margin: 0; /* tightens space between title and subtitle */
+            margin: 0;
         }
         
-        /* COMMON NAVIGATION STYLING */
+       
         nav {
             position: absolute;
             top: 0;
             right: 0;
-            /* make sure that the parent header is positioned relative */
+         
         }
         
         nav ul {
@@ -83,11 +72,11 @@
         }
         
         nav li a {
-            display: inline-block; /* allows you to style as a button with background */
-            padding: 10px 15px; /* determines size of button shape or space */
-            margin-left: 5px; /* space between them */
-            text-decoration: none; /* default is underline */
-            color: white; /* default is blue */
+            display: inline-block;
+            padding: 10px 15px; 
+            margin-left: 5px; 
+            text-decoration: none;
+            color: white; 
             background-color: rgba(0, 0, 0, 0.5);
             border-radius: 4px;
             font-weight: 500;
@@ -99,7 +88,6 @@
             color: white;
         }
         
-        /* SECTION STYLES */
         main section h3 {
             font-weight: 700;
             text-transform: uppercase;
@@ -109,7 +97,6 @@
             font-size: 2em;
         }
         
-        /* custom section styles */
         #intro {
             background-color: #f9f9f9;
             color: #333;
@@ -130,8 +117,7 @@
             color: white;
         }
         
-        /* ASIDE DESIGN */
-        /* I like to use aside tags to attach photos, with or without text, to break up the flow of your page */
+       
         aside h4 {
             text-transform: uppercase;
             font-weight: 100;
@@ -148,25 +134,22 @@
             place-items: center;
         }
         
-        /* FLEXBOX ROW STYLING */
         .row {
             display: flex;
-            align-items: center; /* vertical */
-            justify-content: center; /* horizontal */
-            gap: 40px; /* like margins */
-            margin-bottom: 40px; /* balances with the section title space */
+            align-items: center; 
+            justify-content: center; 
+            gap: 40px; 
+            margin-bottom: 40px; 
             flex-wrap: wrap;
         }
         
-        .reverse { flex-direction: row-reverse; } /* if you want to reverse the ordering in your row just add this class to the row in html */
-        
+        .reverse { flex-direction: row-reverse; }
         #intro .row p { 
             max-width: 600px;
             font-size: 1.2em;
             line-height: 1.8;
         }
         
-        /* GALLERY / PORTFOLIO STYLES */
         #portfolio {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -218,7 +201,6 @@
             font-size: 0.95em;
         }
         
-        /* CONTACT STYLES */
         .contact-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -257,7 +239,6 @@
             font-size: 1rem;
         }
         
-        /* ABOUT CONTENT */
         .about-content {
             display: flex;
             align-items: center;
@@ -287,7 +268,6 @@
             margin: 0 auto;
         }
         
-        /* FOOTER STYLES */
         footer { 
             display: flex; 
             justify-content: space-around; 
@@ -316,7 +296,6 @@
             color: #ff7e5f;
         }
         
-        /* use scaled media rules to make sure that things wrap the way you want when viewing on smaller devices */
         @media screen and (max-width: 768px) {
             .row { 
                 flex-direction: column; 
@@ -383,7 +362,7 @@
         <h1>Huy's Gundam Portfolio</h1>
         <h3>My Collection of Gundam Model Kits</h3>
     </hgroup>
-    <nav><!-- traditional navigation set-up -->
+    <nav>
         <ul>
             <li><a href="#intro">Intro</a></li>
             <li><a href="#gallery">Gallery</a></li>
@@ -393,17 +372,17 @@
     </nav>
 </header>
 
-<main><!-- the main part of your site outside of header and footer -->
-    <section id="intro"><!-- it is good to design in sections of contained content with a common background and styles -->
+<main>
+    <section id="intro">
         <h3>Welcome to My Gundam World</h3>
-        <div class="row"><!-- use rows to layout things horizontally in a section using flexbox, each direct child will be an aligned item. -->
+        <div class="row">
             <p>This site showcases a collection of visual works featuring Gundam model kits. Gundam is an internationally renowned franchise spanning around 83 animated series and movies, starting from 1979. Each model represents hours of careful assembly, painting, and photography.</p>
             <p>The Gundam franchise has captivated audiences for decades with its complex storytelling, mecha designs, and philosophical themes. Building these models is both a technical challenge and an artistic expression.</p>
-        </div><!-- END OF ROW -->
+        </div>
     </section>
 
-    <aside id="sectional-1"><!-- Image is placed in background style -->
-        <h4>Mobile Suit Art</h4><!-- in the page hierarchy this is a minor title but I style it huge for design -->
+    <aside id="sectional-1">
+        <h4>Mobile Suit Art</h4>
     </aside>
 
     <section id="gallery">
@@ -411,8 +390,8 @@
         <div class="row">
             <p>Explore my collection of assembled and customized Gundam models. Each piece represents a unique build with attention to detail, painting techniques, and photographic composition.</p>
         </div>
-        <div id="portfolio"><!-- I'll make this the grid parent in the styles, similar to how I used 'row' as a flex parent -->
-            <figure><!-- these are the direct children of 'portfolio' that will be the gridded items -->
+        <div id="portfolio">
+            <figure>
                 <img src="file:///C:/Users/giahu/Downloads/drive-download-20251205T024210Z-1-001/5BC5D33F-419B-477C-8674-E5E68D166FCD.JPG" alt="Gundam model close-up">
                 <figcaption>RX-93 v Gundam</figcaption>
             </figure>
@@ -493,4 +472,5 @@
 </section><!-- END OF PAGE -->
 
 </body>
+
 </html>
